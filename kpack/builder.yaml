@@ -1,0 +1,19 @@
+apiVersion: kpack.io/v1alpha1
+kind: Builder
+metadata:
+  name: chachkies-builder
+  namespace: default
+spec:
+  serviceAccount: builder-service-account
+  tag: ashumilov/builder
+  stack:
+    name: base
+    kind: ClusterStack
+  store:
+    name: default
+    kind: ClusterStore
+  order:
+  - group:
+    - id: paketo-buildpacks/java
+  - group:
+    - id: paketo-buildpacks/nodejs

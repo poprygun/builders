@@ -1,0 +1,15 @@
+apiVersion: kpack.io/v1alpha1
+kind: Image
+metadata:
+  name: builder-image
+  namespace: default
+spec:
+  tag: harbor-repo.vmware.com/build_service/chachkies
+  serviceAccount: builder-service-account
+  builder:
+    name: chachkies-builder
+    kind: Builder
+  source:
+    git:
+      url: https://github.com/poprygun/chachkies
+      revision: dada461bf8155b3dd96a2d83e5c26370c3b1b220
